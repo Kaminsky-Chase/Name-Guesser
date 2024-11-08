@@ -1,6 +1,6 @@
 import random
 from fruits import fruits # this is saying import fruits.py and then importing the list "fruits" into this list to use.
-
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Prompt user to choose a difficulty level by number
 Difficulty= input(""" 
 Welcome to word guesser
@@ -40,6 +40,23 @@ while True:
     except ValueError: #cache
         print("Invalid input. Please try again.")
 
+'''
+while True:
+    try:
+        # Check the user's input and map it to the correct difficulty level
+        if Difficulty in ['1', '2', '3', '4']:
+            level_index = int(Difficulty) - 1
+            print(f"\n{levels[level_index]} Selected")
+            maxIncorrectGuesses -= (level_index * 3)  # Reduce guesses based on difficulty level
+            break
+        else:
+            print("Invalid difficulty. Please choose from: 1, 2, 3, 4.")
+            Difficulty = input("Choose a Difficulty: ").strip()  # Prompt again for valid input
+
+**Better to use for future reference**
+'''
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 def wordUpdated(chosenRandom, guessedLetter, wordState):
 # chosenRandom: This parameter represents the randomly chosen word that the user is trying to guess. It's typically a string (like "apple").
 # guessedLetter: This parameter represents the single letter that the user has guessed. The function uses this letter to check against each letter in chosenRandom.
@@ -54,12 +71,12 @@ def wordUpdated(chosenRandom, guessedLetter, wordState):
 
 def displayWordState(wordState):
     return " ".join(wordState) #seperates Characters
-
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 randomWord = fruits # calls fruits from fruits.py
 chosenRandom = random.choice(randomWord) # randomizes the selection of fruits
-
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 hidddenWord = ["_"] * len(chosenRandom) # makes the randomized word into _'s
-
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 while incorrectGuesses < maxIncorrectGuesses and "_" in hidddenWord:
     print("current word:", displayWordState(hidddenWord))
     # while you still have guesses left this will play but if you run out then it will say you failed if not it will run until you complete
