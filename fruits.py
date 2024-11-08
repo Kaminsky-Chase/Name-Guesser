@@ -14,3 +14,5 @@ fruits = [
     'tamarillo', 'tamarind', 'tangelo', 'tangerine', 'ugli', 'watermelon', 'waxapple', 'wolfberry', 
     'yuzu'
 ]
+
+#this is just the area were i store the words that are randomly guessed
